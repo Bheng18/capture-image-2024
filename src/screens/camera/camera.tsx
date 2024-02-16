@@ -1,8 +1,13 @@
 import type { ChangeEvent, ReactElement } from 'react';
 import React, { useRef, useState } from 'react';
 import ImageUploader from '../../components/image-uploader';
+import { useAppDispatch } from '../../app/hooks';
+import { fetchImage } from '../../features/api/slice';
 
 const Camera = (): ReactElement => {
+  // const  image = useAppSelector((state: RootState) => state.userInfo);
+  const dispatch = useAppDispatch();
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
@@ -41,6 +46,7 @@ const Camera = (): ReactElement => {
 
   const saveImageToDesktop = async () => {
     if (!capturedImage) return;
+    dispatch(fetchImage(capturedImage));
 
     try {
       if (window.showSaveFilePicker) {
