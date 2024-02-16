@@ -85,10 +85,7 @@ const Camera = (): ReactElement => {
         />
       </div>
       <div className="flex justify-center">
-        <canvas
-          ref={canvasRef}
-          style={{ display: 'block', width: '72%', height: '450px' }}
-        />
+        <canvas ref={canvasRef} style={{ display: 'block', height: '450px' }} />
       </div>
       {capturedImage && (
         <div className="flex justify-around my-5">

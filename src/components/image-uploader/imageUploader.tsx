@@ -21,7 +21,7 @@ function ImageUploader() {
 
   return (
     <div>
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-10 border-8">
         <input type="file" accept="image/*" onChange={handleImageChange} />
       </div>
       {selectedImage && (
